@@ -1,10 +1,10 @@
-package com.example.cst438;
+package com.cst438;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Cst438ApplicationTests {
+class Cst438GradebookApplicationTests {
 
 	@Test
 	void contextLoads() {
