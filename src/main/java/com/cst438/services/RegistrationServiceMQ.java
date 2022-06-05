@@ -14,6 +14,8 @@ import com.cst438.domain.Enrollment;
 import com.cst438.domain.EnrollmentDTO;
 import com.cst438.domain.EnrollmentRepository;
 
+import java.util.Optional;
+
 
 public class RegistrationServiceMQ extends RegistrationService {
 
@@ -45,7 +47,7 @@ public class RegistrationServiceMQ extends RegistrationService {
 	public void receive(EnrollmentDTO enrollmentDTO) {
 		
 		//TODO  complete this method in homework 4
-		Course course = courseRepository.findByCourse_id(enrollmentDTO.course_id);
+		Course course = courseRepository.findById(enrollmentDTO.course_id).orElse(null);
 		Enrollment enrollment = new Enrollment();
 		enrollment.setCourse(course);
 		enrollment.setStudentName(enrollmentDTO.studentName);
