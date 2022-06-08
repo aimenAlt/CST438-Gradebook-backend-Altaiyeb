@@ -29,7 +29,6 @@ public class AssignmentListDTO {
 					+ dueDate + ", courseTitle=" + courseTitle + ", courseId=" + courseId + "]";
 		}
 
-
 		@Override
 		public boolean equals(Object obj) {
 			if (this == obj)

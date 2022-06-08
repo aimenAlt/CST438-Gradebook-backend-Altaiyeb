@@ -43,8 +43,6 @@ public class AssignmentController {
     @Autowired
     CourseRepository courseRepository;
 
-//    @Autowired
-//    RegistrationService registrationService;
 
     @PostMapping("/assignment")
     public int getAssignmentsNeedGrading(@RequestBody AssignmentListDTO.AssignmentDTO assignmentDTO) throws ParseException {

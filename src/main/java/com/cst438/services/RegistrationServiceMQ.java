@@ -37,11 +37,9 @@ public class RegistrationServiceMQ extends RegistrationService {
 	@Autowired
 	Queue registrationQueue;
 
-
 	// ----- end of configuration of message queue
 
 	// receiver of messages from Registration service
-	
 	@RabbitListener(queues = "gradebook-queue")
 	@Transactional
 	public void receive(EnrollmentDTO enrollmentDTO) {

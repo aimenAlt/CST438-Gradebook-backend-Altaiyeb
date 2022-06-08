@@ -87,7 +87,7 @@ public class EndToEndTestSubmitGrades {
 		a = assignmentRepository.save(a);
 		e = enrollmentRepository.save(e);
 
-		AssignmentGrade ag = null;
+		AssignmentGrade ag;
 
 		// set the driver location and start driver
 		//@formatter:off
