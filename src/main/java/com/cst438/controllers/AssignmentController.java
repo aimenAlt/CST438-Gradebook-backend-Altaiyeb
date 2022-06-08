@@ -51,7 +51,7 @@ public class AssignmentController {
 
         String email = "dwisneski@csumb.edu";
         Assignment newAssignment = new Assignment();
-//        newAssignment.setCourse(courseRepository.findById(assignmentDTO.courseId));
+        newAssignment.setCourse(courseRepository.findById(assignmentDTO.courseId).orElse(null));
         newAssignment.setDueDate((Date) new SimpleDateFormat("dd/MM/yyyy").parse(assignmentDTO.dueDate));
         newAssignment.setName(assignmentDTO.assignmentName);
         newAssignment.setNeedsGrading(0);

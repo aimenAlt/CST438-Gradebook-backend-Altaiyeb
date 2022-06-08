@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -28,7 +29,8 @@ import com.cst438.domain.GradebookDTO;
 import com.cst438.services.RegistrationService;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:3000","http://localhost:3001"})
+@CrossOrigin(origins = {"http://localhost:3000","http://localhost:3001",
+						"https://cst438grade-fe-alt.herokuapp.com/"})
 public class GradeBookController {
 	
 	@Autowired
@@ -39,10 +41,11 @@ public class GradeBookController {
 	
 	@Autowired
 	CourseRepository courseRepository;
-	
+
+	@Qualifier("RegistrationService")
 	@Autowired
 	RegistrationService registrationService;
-	
+
 	// get assignments for an instructor that need grading
 	@GetMapping("/gradebook")
 	public AssignmentListDTO getAssignmentsNeedGrading( ) {
