@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class EndToEndTestAddAssignment {
 
     public static final String CHROME_DRIVER_FILE_LOCATION = "C:/chromedriver.exe";
-    public static final String URL = "https://minu-gradebook-frontend.herokuapp.com/";
+    public static final String URL = "https://cst438grade-fe-alt.herokuapp.com//";
     public static final String TEST_USER_EMAIL = "test@csumb.edu";
     public static final String TEST_INSTRUCTOR_EMAIL = "dwisneski@csumb.edu";
     public static final int SLEEP_DURATION = 1000; // 1 second.
@@ -98,7 +98,7 @@ public class EndToEndTestAddAssignment {
                     break;
                 }
             }
-            assertTrue(found_assignment, "Unable to locate TEST ASSIGNMENT in list of assignments to be graded.");
+            assertTrue(found_assignment, "Unable to locate Assignment.");
 
         } catch (Exception ex) {
             throw ex;
@@ -107,6 +107,7 @@ public class EndToEndTestAddAssignment {
             // clean up database.
             List<Assignment> list_a = assignmentRepository.findNeedGradingByEmail(TEST_INSTRUCTOR_EMAIL);
             for (Assignment a : list_a) {
+
                 ag = assignnmentGradeRepository.findByAssignmentIdAndStudentEmail(a.getId(), TEST_USER_EMAIL);
                 if (ag != null)
                     assignnmentGradeRepository.delete(ag);

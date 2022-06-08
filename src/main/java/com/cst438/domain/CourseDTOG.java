@@ -24,8 +24,5 @@ public class CourseDTOG {
 	public String toString() {
 		return "CourseDTOG [course_id=" + course_id + ", grades=" + grades + "]";
 	}
-	
-	
-
 
 }
